@@ -130,7 +130,7 @@ docker-push: ## Push docker image with the manager.
 # Podman alternatives rules for constructing software
 .PHONY: podman-build
 podman-build: test ## Build podman image with the manager.
-	podman build -t ${IMG} .
+	podman build --build-arg goarch=${TARGET_ARCH} -t ${IMG} .
 
 .PHONY: podman-push
 podman-push: ## Push podman image with the manager.
